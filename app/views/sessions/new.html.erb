@@ -1,0 +1,24 @@
+<h1 align="center">Rails File Manager Login Page</h1>
+
+<%= form_tag sessions_create_path, class: "form-signin" do %>
+  <h2 class="form-signin-heading">Please sign in.</h2>
+    <%= label_tag :email, "Email Address:", for: "email", class: "sr-only" %>
+    <%= text_field_tag :email, nil, class: "form-control input-md", placeholder: "Email Address", autofocus: true %>
+
+    <%= label_tag :password, "Password:", for: "password", class: "sr-only" %>
+    <%= password_field_tag :password, nil, class: "form-control input-md", placeholder: "Password" %>
+
+    <div class="btn-group" role="group" aria-label="...">
+      <%= submit_tag "Login", class: "btn btn-primary btn-md" %>
+      <%= link_to "Register", new_user_account_path,class: "btn btn-default btn-md" %>
+    </div>
+<% end %>
+
+<p></p>
+<% flash.each do |key, value| %>
+<table align="center">
+  <tr>
+    <td class="alert alert-info"><%= value %></td>
+  </tr>
+</table>
+<% end %>
