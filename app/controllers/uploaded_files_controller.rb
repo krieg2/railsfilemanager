@@ -1,4 +1,7 @@
 class UploadedFilesController < ApplicationController
+
+  before_action :authorize
+
   def index
     @user_account = UserAccount.find(params[:user_account_id])
     @uploaded_files = @user_account.uploaded_files.order(filename: :desc).all

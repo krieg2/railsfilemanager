@@ -5,5 +5,8 @@ class UserAccount < ApplicationRecord
   #validates :password, length: { minimum: 8 }
   validates_format_of :email, :with => /\A[\w]+@[\w]+\.+[\w]+\z/
 
+
+  has_secure_password
+
   has_many :uploaded_files
 end

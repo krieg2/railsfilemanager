@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     @user = UserAccount.find_by_email(params[:email])
-    if @user && (@user.password == params[:password])
+    if @user && @user.authenticate(params[:password])
       session[:user_account_id] = @user.id
       redirect_to user_account_uploaded_files_path(@user), notice: 'Logged in.'
     else
